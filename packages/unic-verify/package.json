@@ -1,0 +1,34 @@
+{
+  "name": "@unic/unic-verify",
+  "version": "0.1.0",
+  "description": "紫金诚验证码js-sdk",
+  "unpkg": "dist/unic-verify.js",
+  "jsdelivr": "dist/unic-verify.js",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/*"
+  ],
+  "dependencies": {
+    "@unic/core": "^0.1.0"
+  },
+  "keywords": [
+    "unic",
+    "verify"
+  ],
+  "author": "ZhanPhty",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZhanPhty/unic-verify.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ZhanPhty/unic-verify/issues"
+  },
+  "homepage": "https://github.com/ZhanPhty/unic-verify#readme",
+  "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false
+}
