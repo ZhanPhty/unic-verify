@@ -13,7 +13,7 @@ export interface Options {
   // 宽度
   text?: string
   width: string | undefined
-  // 验证结束时回调
+  // 验证结束时回调函数
   onVerify?: () => void
 }
 
