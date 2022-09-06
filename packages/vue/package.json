@@ -1,7 +1,7 @@
 {
-  "name": "@unic/compute",
+  "name": "@unic/vue",
   "version": "0.1.0",
-  "description": "计算函数",
+  "description": "vue组件",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
@@ -9,11 +9,11 @@
     "dist/*"
   ],
   "dependencies": {
-    "@unic/shared": "^0.1.0"
+    "@unic/verify": "^0.1.0"
   },
   "keywords": [
     "unic",
-    "compute"
+    "vue"
   ],
   "author": "ZhanPhty",
   "repository": {

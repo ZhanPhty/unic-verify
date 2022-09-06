@@ -1,7 +1,7 @@
 {
-  "name": "@unic/compute",
+  "name": "@unic/swipe-image",
   "version": "0.1.0",
-  "description": "计算函数",
+  "description": "swipe-image模式",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
@@ -9,11 +9,15 @@
     "dist/*"
   ],
   "dependencies": {
-    "@unic/shared": "^0.1.0"
+    "@unic/core": "^0.1.0",
+    "@unic/event": "^0.1.0",
+    "@unic/shared": "^0.1.0",
+    "@unic/compute": "^0.1.0",
+    "@unic/action": "^0.1.0"
   },
   "keywords": [
     "unic",
-    "compute"
+    "swipe-image"
   ],
   "author": "ZhanPhty",
   "repository": {

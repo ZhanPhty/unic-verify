@@ -1,5 +1,6 @@
 import MittEvent from './mitt'
 export type UEvent = MittEvent
+export { MittEvent }
 
 import type {
   PluginContext,
@@ -47,6 +48,15 @@ export interface Options {
   domEvents?: false | EventInit
   preventDefault?: boolean | ((e: NativeEvent) => boolean)
 }
+
+/**
+ * 插件映射
+ * {名称: 插件实例}
+ * @example
+ * {swipe: SwipeContext}
+ */
+export interface PluginContextMap {} // eslint-disable-line
+type GetPluginContext<N> = N extends keyof PluginContextMap ? PluginContextMap[N] : PluginContext | undefined
 
 /**
  * 默认设置
@@ -237,8 +247,8 @@ export default class UnicEvent extends MittEvent {
    * @param name 识别器的名字
    * @return 返回识别器
    */
-  get(name: string) {
-    return this.__pluginContexts.find((pluginContext) => name === pluginContext.name)
+  get<N extends keyof PluginContextMap>(name: N): GetPluginContext<N> {
+    return this.__pluginContexts.find((pluginContext) => name === pluginContext.name) as GetPluginContext<N>
   }
 
   /**

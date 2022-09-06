@@ -38,6 +38,13 @@ export const FLOAT_MODE = 'float'
 export const EMBED_MODE = 'embed'
 export const POPUP_MODE = 'popup'
 
+// 验证码的验证状态
+export const enum VERIFYSTATE {
+  POSSIBLE = 'possible',
+  RECOGNIZED = 'recognized',
+  FAILED = 'failed'
+}
+
 // 识别器状态码
 export const enum STATE {
   POSSIBLE,

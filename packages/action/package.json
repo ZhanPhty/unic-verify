@@ -1,7 +1,7 @@
 {
-  "name": "@unic/compute",
+  "name": "@unic/action",
   "version": "0.1.0",
-  "description": "计算函数",
+  "description": "预设的手势action",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
@@ -9,11 +9,13 @@
     "dist/*"
   ],
   "dependencies": {
-    "@unic/shared": "^0.1.0"
+    "@unic/event": "^0.1.0",
+    "@unic/shared": "^0.1.0",
+    "@unic/compute": "^0.1.0"
   },
   "keywords": [
     "unic",
-    "compute"
+    "action"
   ],
   "author": "ZhanPhty",
   "repository": {

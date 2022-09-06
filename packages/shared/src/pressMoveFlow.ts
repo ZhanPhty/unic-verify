@@ -29,13 +29,6 @@ export function getStatusName(code: RECOGNIZER_STATE) {
  */
 export function flow(isVaild: boolean, lastStatus: RECOGNIZER_STATE, phase: string): RECOGNIZER_STATE {
   /*
-   * {
-   *  isValid {
-   *    lastStatus {
-   *      phase: currentStatus
-   *    }
-   *  }
-   * }
    * Number(true) === 1
    * 这个分支不会出现STATUS_FAILED
    * STATUS_END在上面的代码中也会被重置为STATUS_POSSIBLE, 从而进行重新识别

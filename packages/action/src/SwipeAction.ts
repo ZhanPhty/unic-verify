@@ -1,9 +1,8 @@
 /**
- * 滑动验证码的动作事件
+ * 滑动action
  */
 import UnicEvent from '@unic/event'
 import {
-  PluginContext,
   createPluginContext,
   isDisabled,
   resetState,
@@ -13,30 +12,55 @@ import {
   TYPE_END,
   TYPE_CANCEL
 } from '@unic/shared'
-import { ComputeVAndDir, ComputeDistance } from '@unic/compute'
+import type { PluginContext, AllEvent } from '@unic/shared'
+import { ComputeVAndDir, ComputeDistance, ComputeDeltaXY } from '@unic/compute'
 
 const DEFAULT_OPTIONS = {
-  name: 'swipeAction',
-  threshold: 10,
+  // action名称
+  name: 'swipe',
+  // 触发阈值
+  threshold: 0,
+  // 触发点数量
   pointLength: 1
 }
 
 /**
  * 实例
  */
-export type pContext = PluginContext & typeof DEFAULT_OPTIONS
+export type SwipeContext = PluginContext & typeof DEFAULT_OPTIONS
 
 /**
- * tap类型的验证码
- * @param wrapRef
+ * 扩展插件映射
  */
-export default function (uv: UnicEvent, options?: Partial<typeof DEFAULT_OPTIONS>): pContext {
+declare module '@unic/event' {
+  interface PluginContextMap {
+    swipe: SwipeContext
+  }
+
+  interface EventMap {
+    swipe: AllEvent
+    swipestart: AllEvent
+    swipemove: AllEvent
+    swipeend: AllEvent
+  }
+}
+
+/**
+ * swipe滑动类型
+ * @param uv Event事件
+ * @param options 配置
+ * @return PluginContext 组件上下文
+ */
+export default function (uv: UnicEvent, options?: Partial<typeof DEFAULT_OPTIONS>): SwipeContext {
+  // 整合组件上下文配置
   const ctx = createPluginContext(DEFAULT_OPTIONS, options)
 
-  uv.compute([ComputeVAndDir, ComputeDistance], (computed) => {
+  // 添加计算队列
+  uv.compute([ComputeVAndDir, ComputeDistance, ComputeDeltaXY], (computed: AllEvent) => {
     // 重置status
     resetState(ctx)
     // 禁止
+    // 可通过uv.get()直接设置disabled
     if (isDisabled(ctx)) return
     const isValid = test()
     ctx.state = flow(isValid, ctx.state, computed.phase)

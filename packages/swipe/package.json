@@ -12,7 +12,8 @@
     "@unic/core": "^0.1.0",
     "@unic/event": "^0.1.0",
     "@unic/shared": "^0.1.0",
-    "@unic/compute": "^0.1.0"
+    "@unic/compute": "^0.1.0",
+    "@unic/action": "^0.1.0"
   },
   "keywords": [
     "unic",
@@ -28,5 +29,8 @@
   },
   "homepage": "https://github.com/ZhanPhty/unic-verify#readme",
   "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  },
   "sideEffects": false
 }

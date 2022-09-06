@@ -1,14 +1,22 @@
-import Core from '@unic/core'
-import { STATE } from './const'
+import UnicEvent from '@unic/event'
+import { STATE, VERIFYSTATE } from './const'
 
 export type KV = Record<string, any>
 
 export type PluginOptions = { name?: string } & KV
 
 /**
- * 验证码模式
+ * 事件状态
  */
 export type RECOGNIZER_STATE = STATE
+
+/**
+ * 验证回调事件上下文内容
+ */
+export type VerifyContext = {
+  state: VERIFYSTATE
+  event: AllEvent
+}
 
 /**
  * 插件上下文内容
@@ -21,7 +29,7 @@ export type PluginContext<D extends Required<PluginOptions> = Required<PluginOpt
 /**
  * 插件
  */
-export type Plugin = (context: Core, pluginOptions?: PluginOptions) => PluginContext
+export type Plugin = (context: UnicEvent, pluginOptions?: PluginOptions) => PluginContext
 
 export type SupportElement = HTMLElement | SVGElement
 
@@ -58,13 +66,10 @@ export interface PubicEvent {
  */
 export interface InputOnlyHasCurrent extends PubicEvent {
   readonly id: number
-  // readonly preventDefault: () => void;
   // 新一轮手势识别的开始和结束
   readonly isStart: boolean
   readonly isEnd: boolean
   readonly pointLength: number
-  // 发生改变的触点数据
-  // readonly changedPointLength: number;
   // 当前时间
   readonly timestamp: number
   readonly target: EventTarget | null
@@ -121,24 +126,29 @@ export interface Computed extends KV {
   // 一次识别周期中出现的最大触点数
   readonly maxPointLength?: number
   // 参与速度计算的触点数量
-  // readonly vPointLengh?: number;
+  readonly vPointLengh?: number
+  // 当前 x 轴速度
   readonly velocityX?: number
+  // 当前 y 轴速度
   readonly velocityY?: number
   readonly speedX?: number
   readonly speedY?: number
-  readonly scale?: number
-  readonly deltaScale?: number
-  readonly angle?: number
-  readonly deltaAngle?: number
+  // 当前触点和前触点的 x 轴偏移距离
   readonly deltaX?: number
+  // 当前触点和前触点的 y 轴偏移距离
   readonly deltaY?: number
   readonly deltaXYAngle?: number
+  // 当前触点与起始触点的 x 位移(矢量)
   readonly displacementX?: number
+  // 当前触点与起始触点的 y 位移(矢量)
   readonly displacementY?: number
-
+  // displacementX 的绝对值
   readonly distanceX?: number
+  // displacementY 的绝对值
   readonly distanceY?: number
+  // 当前触点与起始触点的距离(标量)
   readonly distance?: number
+  // 当前时间与起始触碰时间的差值
   readonly deltaTime?: number
   // 与起始点的偏移方向
   readonly overallDirection?: directionString

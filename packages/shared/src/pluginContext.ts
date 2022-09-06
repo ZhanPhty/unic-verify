@@ -1,6 +1,6 @@
 import raf from 'raf'
-import { STATE } from './const'
-import { PluginOptions, PluginContext } from './types'
+import { STATE, VERIFYSTATE } from './const'
+import { PluginOptions, PluginContext, VerifyContext, AllEvent } from './types'
 
 /**
  * 创建插件上下文
@@ -13,7 +13,15 @@ export function createPluginContext<D extends Required<PluginOptions>>(
 }
 
 /**
+ * 创建验证状态上下文
+ */
+export function createVerifyContext(state: VERIFYSTATE, event: AllEvent): VerifyContext {
+  return { state, event }
+}
+
+/**
  * 坐标
+ * 规范x/y坐标
  */
 export type XY = readonly [number, number] | { readonly x: number; readonly y: number }
 
@@ -22,7 +30,7 @@ export type XY = readonly [number, number] | { readonly x: number; readonly y: n
  * @param xy
  * @returns [x,y]形式的坐标
  */
-export function xY2Tuple(xy: XY, defaultXY: readonly [number, number]): readonly [number, number] {
+export function xY2Tuple(xy: XY, defaultXY: readonly [number, number] = [0, 0]): readonly [number, number] {
   if ('x' in xy || 'y' in xy) {
     return [xy.x || defaultXY[0], xy.y || defaultXY[1]] as const
   }
@@ -49,6 +57,8 @@ export const AxisList = [Axis.X, Axis.Y]
 
 /**
  * 设置样式
+ * @param el 元素
+ * @param styles 样式对象
  */
 export function setStyle(el: HTMLElement, styles: Partial<CSSStyleDeclaration>) {
   for (const key in styles) {
@@ -76,6 +86,28 @@ export function createDOMDiv(className?: string[]) {
     div.classList.add(...className)
   }
   return div
+}
+
+/**
+ * 追加class
+ * @param el 元素
+ * @param class[]
+ */
+export function changeClass(el: HTMLElement, className?: string[]) {
+  if (className) {
+    el.classList.add(...className)
+  }
+}
+
+/**
+ * 移除class
+ * @param el 元素
+ * @param class[]
+ */
+export function removeClass(el: HTMLElement, className?: string[]) {
+  if (className) {
+    el.classList.remove(...className)
+  }
 }
 
 /**

@@ -25,5 +25,26 @@
     width: @btn-hieght;
     background-color: @white;
     cursor: pointer;
+    transition: all 0.05s;
+  }
+
+  // 成功
+  &--recognized {
+    .unic-swipe--bar {
+      background-color: @success;
+    }
+  }
+
+  // 失败
+  &--failed {
+    .unic-swipe--bar {
+      background-color: @error;
+    }
+  }
+
+  &--possible {
+    .unic-swipe--bar {
+      background-color: @white;
+    }
   }
 }

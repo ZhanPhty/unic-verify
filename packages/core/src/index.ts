@@ -14,7 +14,7 @@ export interface Options {
   text?: string
   width: string | undefined
   // 验证结束时回调函数
-  onVerify?: () => void
+  onVerify: () => void
 }
 
 const DEFAULT_OPTIONS: Options = {
@@ -29,11 +29,11 @@ export default class Core {
   /**
    * 版本
    */
-  v? = '__VERSION__'
+  v = '__VERSION__'
   /**
    * 绑定的元素
    */
-  el?: SupportElement
+  el: SupportElement
   /**
    * 鼠标事件实例
    */
@@ -41,7 +41,7 @@ export default class Core {
   /**
    * 选项
    */
-  options?: Options
+  options: Options
 
   constructor(el: SupportElement, options?: Options) {
     this.el = el
@@ -50,6 +50,6 @@ export default class Core {
     const uv = new UnicEvent(el)
     this.uvEvent = uv
 
-    swipe(this)
+    swipe(this, this.options.onVerify)
   }
 }

@@ -14,7 +14,10 @@ export default {
     UnicVerify(el, {
       key: 'test1234',
       width: '300px',
-      version: '1'
+      version: '1',
+      onVerify(ev) {
+        console.log(ev, '验证状态')
+      }
     })
       .then(() => {
         // const UVTest = new UV()

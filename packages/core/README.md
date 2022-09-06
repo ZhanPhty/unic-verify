@@ -3,5 +3,5 @@
 
 ```javascript
 import Core from '@unic/core';
-const uv = new Core(el, option, onload(){}, onerror(){});
+const uv = new Core(el, option).then(() => {});
 ```

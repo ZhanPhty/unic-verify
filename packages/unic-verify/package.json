@@ -12,8 +12,11 @@
   ],
   "dependencies": {
     "@unic/style": "^0.1.0",
+    "@unic/secret": "^0.1.0",
+    "@unic/event": "^0.1.0",
     "@unic/core": "^0.1.0",
     "@unic/tap": "^0.1.0",
+    "@unic/swipe-image": "^0.1.0",
     "@unic/swipe": "^0.1.0"
   },
   "keywords": [
