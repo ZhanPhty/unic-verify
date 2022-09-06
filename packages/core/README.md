@@ -1,11 +1,7 @@
-# `core`
+# @unic/core
+⭐️核心组件, 处理验证码入口
 
-> TODO: description
-
-## Usage
-
-```
-const core = require('core');
-
-// TODO: DEMONSTRATE API
+```javascript
+import Core from '@unic/core';
+const uv = new Core(el, option, onload(){}, onerror(){});
 ```

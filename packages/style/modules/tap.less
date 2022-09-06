@@ -1,0 +1,29 @@
+.unic-tap {
+  &--box {
+    position: relative;
+    width: 100%;
+    height: @btn-hieght;
+    line-height: @btn-hieght;
+    border: 1px solid @split-color;
+  }
+
+  // 轨道样式
+  &--track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #eee;
+    user-select: none;
+  }
+
+  // 按钮
+  &--bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: @btn-hieght;
+    background-color: @white;
+    cursor: pointer;
+  }
+}

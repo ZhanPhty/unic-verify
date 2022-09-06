@@ -1,11 +1,2 @@
-# `core`
-
-> TODO: description
-
-## Usage
-
-```
-const core = require('core');
-
-// TODO: DEMONSTRATE API
-```
+# @unic/verify
+⭐️主组件

@@ -12,7 +12,7 @@ walkPackageDirs((dirName) => {
       file: `./packages/${dirName}/dist/index.es.js`,
       format: 'esm'
     },
-    external: (id) => ['tslib'].includes(id) || /^@/.test(id),
+    external: (id) => ['tslib', 'raf'].includes(id) || /^@/.test(id),
     tsConfig: {
       target: 'ES5',
       module: 'ESNEXT'

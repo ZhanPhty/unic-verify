@@ -1,24 +1,14 @@
 {
-  "name": "@unic/core",
+  "name": "@unic/shared",
   "version": "0.1.0",
-  "description": "验证码核心模块",
-  "unpkg": "dist/unic-verify.js",
-  "jsdelivr": "dist/unic-verify.js",
+  "description": "sdk状态统一管理模块",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist/*"
   ],
-  "dependencies": {
-    "@unic/event": "^0.1.0",
-    "@unic/secret": "^0.1.0",
-    "@unic/shared": "^0.1.0"
-  },
   "keywords": [
-    "core",
-    "event",
-    "secret",
     "shared"
   ],
   "author": "ZhanPhty",
@@ -34,5 +24,11 @@
   "publishConfig": {
     "access": "public"
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "dependencies": {
+    "raf": "^3.4.1"
+  },
+  "devDependencies": {
+    "@types/raf": "^3.4.0"
+  }
 }

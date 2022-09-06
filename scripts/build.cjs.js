@@ -13,7 +13,7 @@ const genRollupConfig = (dirName) => ({
     exports: 'named',
     format: 'cjs'
   },
-  external: (id) => ['tslib'].includes(id) || /^@/.test(id),
+  external: (id) => ['tslib', 'raf'].includes(id) || /^@/.test(id),
   tsConfig: {
     target: 'ES5'
   },

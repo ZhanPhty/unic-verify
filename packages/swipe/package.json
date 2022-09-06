@@ -1,9 +1,7 @@
 {
-  "name": "@unic/core",
+  "name": "@unic/swipe",
   "version": "0.1.0",
-  "description": "验证码核心模块",
-  "unpkg": "dist/unic-verify.js",
-  "jsdelivr": "dist/unic-verify.js",
+  "description": "swipe模式",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
@@ -11,15 +9,14 @@
     "dist/*"
   ],
   "dependencies": {
+    "@unic/core": "^0.1.0",
     "@unic/event": "^0.1.0",
-    "@unic/secret": "^0.1.0",
-    "@unic/shared": "^0.1.0"
+    "@unic/shared": "^0.1.0",
+    "@unic/compute": "^0.1.0"
   },
   "keywords": [
-    "core",
-    "event",
-    "secret",
-    "shared"
+    "unic",
+    "swipe"
   ],
   "author": "ZhanPhty",
   "repository": {
@@ -31,8 +28,5 @@
   },
   "homepage": "https://github.com/ZhanPhty/unic-verify#readme",
   "license": "ISC",
-  "publishConfig": {
-    "access": "public"
-  },
   "sideEffects": false
 }

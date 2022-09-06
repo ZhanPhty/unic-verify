@@ -1,0 +1,22 @@
+{
+  "name": "@unic/style",
+  "version": "0.1.0",
+  "description": "样式管理",
+  "keywords": [
+    "style"
+  ],
+  "author": "ZhanPhty",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZhanPhty/unic-verify.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ZhanPhty/unic-verify/issues"
+  },
+  "homepage": "https://github.com/ZhanPhty/unic-verify#readme",
+  "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false
+}

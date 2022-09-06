@@ -4,8 +4,8 @@ const replace = require('@rollup/plugin-replace')
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import { version } from './packages/unic-verify/package.json'
-import eslint from '@rollup/plugin-eslint'
 import { babel } from '@rollup/plugin-babel'
+import postcss from 'rollup-plugin-postcss'
 
 export default {
   input: './packages/unic-verify/src/index.ts',
@@ -16,10 +16,12 @@ export default {
       exclude: 'node_modules/**',
       typescript: require('typescript')
     }),
-    eslint(),
     nodeResolve(),
     commonjs(),
     json(),
+    postcss({
+      extract: 'unic-verify.css'
+    }),
     babel({
       babelHelpers: 'bundled',
       exclude: 'node_modules/**'
